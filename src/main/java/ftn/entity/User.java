@@ -2,27 +2,32 @@ package ftn.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 
-@Entity
+@Entity	
 public class User {
 	
 public enum Role {ADMIN, DOCTOR, PATIENT};
 	
 	@Id 
-//	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "ID")
 	private Long id;
 	private Role role;	
 	private String username;
 	private String password;
-	@JsonFormat(pattern = "MM/dd/yyyy")
-	private LocalDate regDate;
-	
+//	@JsonFormat(pattern = "MM/dd/yyyy")
+//	private LocalDate regDate;
+//	@ManyToOne
+//	private User doctorId;	
 	
 	
 	
