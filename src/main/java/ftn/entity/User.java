@@ -1,4 +1,4 @@
-package rs.ac.uns.ftn.entity;
+package ftn.entity;
 
 import java.time.LocalDate;
 
@@ -12,22 +12,23 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 @Entity
 public class User {
 	
-	public enum Role {ADMIN, DOCTOR, PATIENT};
+public enum Role {ADMIN, DOCTOR, PATIENT};
 	
 	@Id 
-	@GeneratedValue
+//	@GeneratedValue
 	private Long id;
 	private Role role;	
 	private String username;
 	private String password;
-	@JsonFormat(pattern = "MM/dd/yyy")
+	@JsonFormat(pattern = "MM/dd/yyyy")
 	private LocalDate regDate;
 	
 	
 	
+	
 	public User() {
-		super();
-	}
+	super();
+}
 	public Long getId() {
 		return id;
 	}
@@ -52,7 +53,5 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
 
 }

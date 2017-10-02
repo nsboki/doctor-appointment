@@ -1,13 +1,13 @@
-package rs.ac.uns.ftn.controller;
+package ftn.controller;
 
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import rs.ac.uns.ftn.entity.User;
-import rs.ac.uns.ftn.service.UserService;
+import ftn.entity.User;
+import ftn.service.UserService;
 
 @RestController
 @RequestMapping("/api/users")
@@ -15,9 +15,9 @@ public class UserController {
 
 	private UserService userService;
 	
-//	public UserController(UserService userService) {
-//		this.userService = userService;
-//	}
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
     @GetMapping( value = {"","/"})
 	public Iterable<User> listUsers() {
 		
