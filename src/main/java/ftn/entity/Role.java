@@ -7,6 +7,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+/**
+ * Role entity
+ * @author Boki
+ *
+ */
+
 @Entity
 @Table(name = "da_role")
 public class Role {

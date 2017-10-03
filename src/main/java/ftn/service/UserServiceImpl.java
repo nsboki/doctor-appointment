@@ -9,11 +9,16 @@ import ftn.entity.User;
 import ftn.repository.UserRepository;
 
 /**
+ * User service interface implementation
  * 
+ * implemented services:
+ *  list all users
+ * 	add and update user
+ * 	get user by id
+ * 	delete user
  * @author Boki
  *
  */
-
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -23,6 +28,7 @@ public class UserServiceImpl implements UserService {
 		this.userRepository = userRepository;
 	}
 	
+	@Override
 	public Iterable<User> list() {
 		return userRepository.findAll();
 	}
@@ -41,8 +47,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User getUser(String id) {
-		userRepository.findOne(Long.valueOf(id));
-		return null;
+		User user = userRepository.findOne(Long.valueOf(id));
+		return user;
 	}
 
 	@Override

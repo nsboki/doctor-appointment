@@ -11,17 +11,23 @@ import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+/**
+ * User Entity
+ * @author Boki
+ *
+ */
 
 @Entity	
 public class User {
 	
-public enum Role {ADMIN, DOCTOR, PATIENT};
+//public enum Role {ADMIN, DOCTOR, PATIENT}; 	//temporary use
 	
 	@Id 
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private Long id;
-	private Role role;	
+	@ManyToOne
+	private Role role;				//TODO: changed before integration with angular code
 	private String username;
 	private String password;
 //	@JsonFormat(pattern = "MM/dd/yyyy")

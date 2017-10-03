@@ -7,11 +7,18 @@ import org.springframework.stereotype.Service;
 import ftn.entity.User;
 
 /**
+ * User service interface
+ * shell for user services
+ * 
+ * services:
+ * 	list all users
+ * 	add and update user
+ * 	get user by id
+ * 	delete user
  * 
  * @author Boki
  *
  */
-
 public interface UserService {
 
 	Iterable<User> list();

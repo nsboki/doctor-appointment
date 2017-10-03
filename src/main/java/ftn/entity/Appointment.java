@@ -8,6 +8,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+/**
+ * Appointment entity
+ * @author Boki
+ *
+ */
+
 @Entity
 @Table(name = "da_appointment")
 public class Appointment {
