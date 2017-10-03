@@ -12,7 +12,7 @@ import ftn.entity.Role;
 import ftn.service.RoleService;
 
 /**
- * Rolecontroller
+ * Role controller
  * 
  * path - role method mapping
  *  

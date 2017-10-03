@@ -33,7 +33,7 @@ public class User {
 //	@JsonFormat(pattern = "MM/dd/yyyy")
 //	private LocalDate regDate;
 //	@ManyToOne
-//	private User doctorId;	
+//	private User doctorId;			//TODO: after integration angular code uncomment code
 	
 	
 	
