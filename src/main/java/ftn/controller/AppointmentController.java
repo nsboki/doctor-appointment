@@ -20,7 +20,7 @@ import ftn.service.AppointmentService;
  *
  */
 @RestController
-@RequestMapping("/api/appointments")
+@RequestMapping("/appointments")
 public class AppointmentController {
 	
 	private AppointmentService appointmentService;

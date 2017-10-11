@@ -1,13 +1,21 @@
 package ftn.entity;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+import javax.persistence.PrePersist;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -17,34 +25,49 @@ import com.fasterxml.jackson.annotation.JsonFormat;
  *
  */
 
-@Entity	
-public class User {
+@Entity
+@Table(name = "[user]")
+@Inheritance(strategy = InheritanceType.JOINED)
+public class User extends BaseModel{
 	
-//public enum Role {ADMIN, DOCTOR, PATIENT}; 	//temporary use
+public enum Role {
+	ROLE_ADMIN, 
+	ROLE_GUEST,
+	ROLE_DOCTOR, 
+	ROLE_PATIENT
+	}; 	//temporary use
 	
-	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID")
-	private Long id;
-	@ManyToOne
-	private Role role;				//TODO: changed before integration with angular code
+	@Enumerated(EnumType.STRING)
+	private Role role;		
+
+	private String firstName;
+	private String lastName;
+	private String email;
 	private String username;
 	private String password;
-//	@JsonFormat(pattern = "MM/dd/yyyy")
-//	private LocalDate regDate;
-//	@ManyToOne
-//	private User doctorId;			//TODO: after integration angular code uncomment code
 	
-	
-	
-	public User() {
-	super();
-}
-	public Long getId() {
-		return id;
+	public User() {	
+		this.setRole(Role.ROLE_GUEST);
+		this.setActive(true);
 	}
-	public void setId(Long id) {
-		this.id = id;
+
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public Role getRole() {
 		return role;
