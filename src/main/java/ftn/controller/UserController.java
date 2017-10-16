@@ -55,13 +55,18 @@ public class UserController {
     /**
      * 
      * @param user
-     * @return add new user, or update existing user
+     * @return add new user
      */
 	@PostMapping("/save")
 	public User saveUser(@RequestBody User user) {
 		return userService.save(user);
 	}
 	
+	/**
+     * 
+     * @param user
+     * @return update existing user
+     */
 	@PutMapping("/save")
 	public User updateUser(@RequestBody User user) {
 		return userService.save(user);
