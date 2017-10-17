@@ -1,8 +1,16 @@
 package ftn.service;
 
+import org.springframework.stereotype.Service;
+
 import ftn.entity.Patient;
 import ftn.repository.PatientRepository;
 
+/**
+ * 
+ * @author Boki
+ *
+ */
+@Service
 public class PatientServiceImpl implements PatientService{
 
 	private PatientRepository patientRepository;
