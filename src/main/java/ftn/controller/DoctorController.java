@@ -19,7 +19,7 @@ import ftn.service.DoctorService;
  *
  */
 
-@CrossOrigin(origins = "http://localhost:4200")
+//@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/doctors")
 public class DoctorController {

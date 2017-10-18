@@ -3,6 +3,8 @@ package ftn.repository;
 import org.springframework.data.repository.CrudRepository;
 
 import ftn.entity.User;
+import java.lang.String;
+import java.util.List;
 
 /**
  * User repository interface
@@ -12,5 +14,5 @@ import ftn.entity.User;
  */
 
 public interface UserRepository extends CrudRepository<User, Long> {
-
+	User findByUsername(String username);
 }

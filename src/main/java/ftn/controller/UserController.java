@@ -1,5 +1,9 @@
 package ftn.controller;
 
+import java.security.Principal;
+
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +35,13 @@ public class UserController {
 	
 	public UserController(UserService userService) {
 		this.userService = userService;
+	}
+	
+	@GetMapping("/user")
+	public User getLoggedInUser(Principal principal, HttpServletRequest request) {
+		User user = userService.findByUsername(principal.getName()); 
+		request.getSession().setAttribute("user", user);
+		return user;
 	}
 	
 	/**
